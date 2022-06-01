@@ -1,7 +1,5 @@
 from .base_page import BasePage
-from .locators import BasketLocators
-from .locators import OrderLocators
-from .locators import PricerLocators
+from .locators import BasketLocators,OrderLocators,PricerLocators
 
 import math
 
