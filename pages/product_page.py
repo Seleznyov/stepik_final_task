@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import BasketLocators,OrderLocators,PricerLocators
+from selenium.common.exceptions import NoAlertPresentException
 
 import math
 
@@ -14,13 +15,15 @@ class ProductPage(BasePage):
         answer = str(math.log(abs((12 * math.sin(float(x))))))
         alert.send_keys(answer)
         alert.accept()
-        try:
-            alert = self.browser.switch_to.alert
-            alert_text = alert.text
-            print(f"Your code: {alert_text}")
-            alert.accept()
-        except NoAlertPresentException:
-            print("No second alert presented")
+        # alert = self.browser.switch_to.alert
+        # alert.accept()
+        # try:
+        #     alert = self.browser.switch_to.alert
+        #     # alert_text = alert.text
+        #     # print(f"Your code: {alert_text}")
+        #     alert.accept()
+        # except NoAlertPresentException:
+        #     print("No second alert presented")
 
     def should_item_added_to_cart(self):
         order = self.browser.find_element(*OrderLocators.Order)
@@ -28,7 +31,7 @@ class ProductPage(BasePage):
         name_order = self.browser.find_element(*OrderLocators.Name_Order)
         test_name = name_order.text
         print(test_name)
-        assert test_name in test_result, "имя заказа не совпадает"
+        assert test_name == test_result, "имя заказа не совпадает "+" Актуальный "+test_result+" Ожидаемый "+test_name
 
     def should_price(self):
         basket = self.browser.find_element(*PricerLocators.Price_Basket)

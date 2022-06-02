@@ -11,7 +11,7 @@ class BasketLocators():
     Basket = (By.CSS_SELECTOR, "[class='btn btn-lg btn-primary btn-add-to-basket']")
 
 class OrderLocators():
-    Order = (By.CSS_SELECTOR, "[class='alertinner ']")
+    Order = (By.XPATH, "//div[@class='alertinner ']/strong")
     Name_Order = (By.XPATH, "//div[@class='col-sm-6 product_main']/h1")
 
 class PricerLocators():
