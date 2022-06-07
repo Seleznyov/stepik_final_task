@@ -17,3 +17,7 @@ class OrderLocators():
 class PricerLocators():
     Price_Basket = (By.XPATH, "//div[@class='alertinner ']/p/strong")
     Price_Order = (By.XPATH, "//div[@class='col-sm-6 product_main']/p[@class='price_color']")
+
+class ProductPageLocators():
+    # Не придумал другой локатор
+    SUCCESS_MESSAGE = (By.XPATH, "//div[@class='alertinner ']/strong")
