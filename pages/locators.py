@@ -21,3 +21,7 @@ class PricerLocators():
 class ProductPageLocators():
     # Не придумал другой локатор
     SUCCESS_MESSAGE = (By.XPATH, "//div[@class='alertinner ']/strong")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import BasketLocators,OrderLocators,PricerLocators,ProductPageLocators
+from .locators import BasketLocators,OrderLocators,PricerLocators,ProductPageLocators,BasePageLocators
 from selenium.common.exceptions import NoAlertPresentException
 
 import math
