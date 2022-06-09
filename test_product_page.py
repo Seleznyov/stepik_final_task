@@ -19,7 +19,6 @@ def test_guest_can_add_product_to_basket(browser,link):
     page.solve_quiz_and_get_code()
     page.should_item_added_to_cart()
     page.should_price()
-    page.should_is_disappeared
 
 @pytest.mark.xfail(reason="fixing this bug right now")
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
@@ -29,11 +28,24 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page.add_basket()
     page.should_not_be_success_message()
 
-def test_guest_cant_see_success_message(browser):
-    product_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
-    page = ProductPage(browser, product_link)
-    page.open()
-    page.should_not_be_success_message()
+
+@pytest.mark.add_to_basket
+class TestAddToBasketFromProductPage():
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self):
+        self.link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+        yield
+        pass
+    def test_guest_cant_see_success_message(self, browser):
+        page = ProductPage(browser, self.link)
+        page.open()
+        page.should_not_be_success_message()
+
+    # def test_guest_cant_see_success_message(browser):
+    #     product_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+    #     page = ProductPage(browser, product_link)
+    #     page.open()
+    #     page.should_not_be_success_message()
 
 @pytest.mark.xfail(reason="fixing this bug right now")
 def test_message_disappeared_after_adding_product_to_basket(browser):
