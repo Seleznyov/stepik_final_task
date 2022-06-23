@@ -9,6 +9,7 @@ import faker
                                   "?promo=offer4","?promo=offer5","?promo=offer6",
                                   pytest.param("?promo=offer7", marks=pytest.mark.xfail),"?promo=offer8","?promo=offer9"])
 
+@pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser,link):
     product_link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/{link}"
     # link1 = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
@@ -62,6 +63,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page (browser):
     product_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
     page = ProductPage(browser, product_link)
@@ -70,6 +72,7 @@ def test_guest_can_go_to_login_page_from_product_page (browser):
     login_page.go_to_login_page()
     login_page.should_be_login_page()
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page (browser):
     product_link = "http://selenium1py.pythonanywhere.com/catalogue/"
     page = ProductPage(browser, product_link)
@@ -99,6 +102,7 @@ class TestUserAddToBasketFromProductPage():
                                       "?promo=offer4", "?promo=offer5", "?promo=offer6",
                                       pytest.param("?promo=offer7", marks=pytest.mark.xfail), "?promo=offer8","?promo=offer9"])
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self,browser, link):
         product_link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/{link}"
         page = ProductPage(browser, product_link)
