@@ -25,8 +25,15 @@ class ProductPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class GoToBasketLocators():
     Go_to_Basket = (By.XPATH, "//span[@class='btn-group']/a")
     Basket_Name = (By.XPATH, "//div[@class='page-header action']/h1")
     Message_Empty_Basket = (By.XPATH, "//div[@id='content_inner']/p")
+
+class RegisterNewUserLocators():
+    Register_Email = (By.CSS_SELECTOR, "[name='registration-email']")
+    Register_Password1 = (By.CSS_SELECTOR, "[name='registration-password1']")
+    Register_Password2 = (By.CSS_SELECTOR, "[name='registration-password2']")
+    Register_Button = (By.CSS_SELECTOR, "[name='registration_submit']")
