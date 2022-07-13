@@ -15,6 +15,7 @@ class ProductPage(BasePage):
         answer = str(math.log(abs((12 * math.sin(float(x))))))
         alert.send_keys(answer)
         alert.accept()
+        # Код нужен:) поэтму оставляю!
         # alert = self.browser.switch_to.alert
         # alert.accept()
         # try:

@@ -12,8 +12,6 @@ import faker
 @pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser,link):
     product_link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/{link}"
-    # link1 = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
-    # link2 = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
     page = ProductPage(browser, product_link)
     page.open()
     page.should_not_be_success_message()
@@ -43,6 +41,7 @@ class TestAddToBasketFromProductPage():
         page.open()
         page.should_not_be_success_message()
 
+    # Код нужен:) поэтому и не удаляю !!!
     # def test_guest_cant_see_success_message(browser):
     #     product_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
     #     page = ProductPage(browser, product_link)
